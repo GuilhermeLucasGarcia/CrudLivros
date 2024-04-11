@@ -1,0 +1,82 @@
+﻿@model IEnumerable<CrudLivros.Models.Livro>
+
+@{
+    ViewData["Title"] = "Cadastro de Livros";
+}
+
+<h1>Consulta de Livros</h1>
+
+<p>
+    <a asp-action="Create">Cadastrar Novo Livro</a>
+</p>
+<form method="get" asp-action="Index">
+    <div class="form-group">
+        <label for="searchString">Buscar por Título:</label>
+        <input type="text" class="form-control" id="searchString" name="searchString" style="margin-top:10px" placeholder="Digite o título do livro">
+    </div>
+    <button type="submit" class="btn btn-primary" style="margin-top:10px">Buscar</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <p>Titulo</p>
+                @* @Html.DisplayNameFor(model => model.titulo) *@
+            </th>
+            <th>
+                <p>ISBN</p>
+                @*  @Html.DisplayNameFor(model => model.isbn) *@
+            </th>
+            <th>
+                <p>Qtd. de Páginas</p>
+                @*  @Html.DisplayNameFor(model => model.qtdPag) *@
+            </th>
+            <th>
+                <p>Sinapse</p>
+                @*                 @Html.DisplayNameFor(model => model.sinapse)
+                *@
+            </th>
+            <th>
+                <p>Código de Barras</p>
+                @*                 @Html.DisplayNameFor(model => model.codBarras)
+                *@
+            </th>
+            <th>
+                <p>Inativo</p>
+                @*                 @Html.DisplayNameFor(model => model.inativo)
+                *@
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.titulo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.isbn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.qtdPag)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sinapse)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.codBarras)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.inativo)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.id">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.id">Detalhes</a> |
+                    <a asp-action="Delete" asp-route-id="@item.id">Deletar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
