@@ -27,3 +27,5 @@ Arquitetura
 - Camada de Controle: Contém os controllers, que gerenciam o fluxo da aplicação e a interação com a camada de negócios.
 - Camada de Negócios: Contém as classes que representam a lógica da aplicação, como a manipulação de dados e a aplicação de regras de negócio.
 - Camada de Acesso a Dados: Contém as classes que se comunicam com o banco de dados, utilizando o Entity Framework.
+## Diagrama de Classes até o momento
+![image](https://github.com/GuilhermeLucasGarcia/CrudLivros/assets/47015643/4f88b343-ed07-4c20-93bf-87246d962ac4)
