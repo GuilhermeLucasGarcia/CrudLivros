@@ -1,0 +1,98 @@
+﻿@model CrudLivros.Models.Livro
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Cadastrar</h1>
+
+<h4>Livro</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="titulo" class="control-label"></label>
+                <input asp-for="titulo" class="form-control" />
+                <span asp-validation-for="titulo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="autor" class="control-label"></label>
+                <input asp-for="autor" class="form-control" />
+                <span asp-validation-for="autor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ano" class="control-label"></label>
+                <input asp-for="ano" class="form-control" />
+                <span asp-validation-for="ano" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="qtdPag" class="control-label"></label>
+                <input asp-for="qtdPag" class="form-control" />
+                <span asp-validation-for="qtdPag" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="sinapse" class="control-label"></label>
+                <input asp-for="sinapse" class="form-control" />
+                <span asp-validation-for="sinapse" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="categoria" class="control-label"></label>
+                <input asp-for="categoria" class="form-control" />
+                <span asp-validation-for="categoria" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="editora" class="control-label"></label>
+                <input asp-for="editora" class="form-control" />
+                <span asp-validation-for="editora" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="altura" class="control-label"></label>
+                <input asp-for="altura" class="form-control" />
+                <span asp-validation-for="altura" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="largura" class="control-label"></label>
+                <input asp-for="largura" class="form-control" />
+                <span asp-validation-for="largura" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="profundidade" class="control-label"></label>
+                <input asp-for="profundidade" class="form-control" />
+                <span asp-validation-for="profundidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="edicao" class="control-label"></label>
+                <input asp-for="edicao" class="form-control" />
+                <span asp-validation-for="edicao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="isbn" class="control-label"></label>
+                <input asp-for="isbn" class="form-control" />
+                <span asp-validation-for="isbn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="codBarras" class="control-label"></label>
+                <input asp-for="codBarras" class="form-control" />
+                <span asp-validation-for="codBarras" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="inativo" /> @Html.DisplayNameFor(model => model.inativo)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Cadastrar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar para a Lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

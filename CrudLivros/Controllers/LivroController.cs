@@ -9,24 +9,22 @@ using CrudLivros.Models;
 
 namespace CrudLivros.Controllers
 {
-    public class LivroesController : Controller
+    public class LivroController : Controller
     {
         private readonly bancoDeDados _context;
 
-        public LivroesController(bancoDeDados context)
+        public LivroController(bancoDeDados context)
         {
             _context = context;
         }
 
-        // GET: Livroes
+        // GET: Livro
         public async Task<IActionResult> Index()
         {
             return View(await _context.Livros.ToListAsync());
         }
 
-        
-
-        // GET: Livroes/Details/5
+        // GET: Livro/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -44,18 +42,18 @@ namespace CrudLivros.Controllers
             return View(livro);
         }
 
-        // GET: Livroes/Create
+        // GET: Livro/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Livroes/Create
+        // POST: Livro/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,titulo,isbn,qtdPag,sinapse,codBarras,inativo")] Livro livro)
+        public async Task<IActionResult> Create([Bind("id,titulo,autor,ano,qtdPag,sinapse,categoria,editora,altura,largura,profundidade,edicao,isbn,codBarras,inativo")] Livro livro)
         {
             if (ModelState.IsValid)
             {
@@ -66,7 +64,7 @@ namespace CrudLivros.Controllers
             return View(livro);
         }
 
-        // GET: Livroes/Edit/5
+        // GET: Livro/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -82,12 +80,12 @@ namespace CrudLivros.Controllers
             return View(livro);
         }
 
-        // POST: Livroes/Edit/5
+        // POST: Livro/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,titulo,isbn,qtdPag,sinapse,codBarras,inativo")] Livro livro)
+        public async Task<IActionResult> Edit(int id, [Bind("id,titulo,autor,ano,qtdPag,sinapse,categoria,editora,altura,largura,profundidade,edicao,isbn,codBarras,inativo")] Livro livro)
         {
             if (id != livro.id)
             {
@@ -117,7 +115,7 @@ namespace CrudLivros.Controllers
             return View(livro);
         }
 
-        // GET: Livroes/Delete/5
+        // GET: Livro/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -135,7 +133,7 @@ namespace CrudLivros.Controllers
             return View(livro);
         }
 
-        // POST: Livroes/Delete/5
+        // POST: Livro/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
