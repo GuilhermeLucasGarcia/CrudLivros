@@ -9,43 +9,31 @@
 <p>
     <a asp-action="Create">Cadastrar Novo Livro</a>
 </p>
-<form method="get" asp-action="Index">
-    <div class="form-group">
-        <label for="searchString">Buscar por Título:</label>
-        <input type="text" class="form-control" id="searchString" name="searchString" style="margin-top:10px" placeholder="Digite o título do livro">
-    </div>
-    <button type="submit" class="btn btn-primary" style="margin-top:10px">Buscar</button>
-</form>
 
-<table class="table">
+<table class="table" id="myTable">
     <thead>
         <tr>
             <th>
                 <p>Titulo</p>
-                @* @Html.DisplayNameFor(model => model.titulo) *@
             </th>
             <th>
                 <p>ISBN</p>
-                @*  @Html.DisplayNameFor(model => model.isbn) *@
             </th>
             <th>
                 <p>Qtd. de Páginas</p>
-                @*  @Html.DisplayNameFor(model => model.qtdPag) *@
             </th>
             <th>
                 <p>Sinapse</p>
-                @*                 @Html.DisplayNameFor(model => model.sinapse)
-                *@
             </th>
             <th>
                 <p>Código de Barras</p>
-                @*                 @Html.DisplayNameFor(model => model.codBarras)
-                *@
+ 
             </th>
             <th>
-                <p>Inativo</p>
-                @*                 @Html.DisplayNameFor(model => model.inativo)
-                *@
+                <p>Inativo</p>               
+            </th>
+            <th>
+               <p>config</p> 
             </th>
         </tr>
     </thead>
@@ -80,3 +68,14 @@
         }
     </tbody>
 </table>
+
+<link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" />
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="//cdn.datatables.net/2.0.8/js/dataTables.min.js">
+</script>
+<script>
+    var js = jQuery.noConflict(true)
+    js(document).ready(function () {
+        js('#myTable').DataTable();
+    });
+</script>
